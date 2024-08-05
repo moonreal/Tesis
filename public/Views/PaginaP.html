@@ -9,6 +9,11 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
   </head>
+  <style>
+    #tesis1 {
+      display: none;
+    }
+  </style>
   <body>
     <div class="container mt-5">
       <h1 class="text-center mb-4">Lista de Tesis</h1>
@@ -22,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr id="tesis1">
             <td>Tesis 1</td>
             <td>Alumno A, Alumno B</td>
             <td>1.0</td>
@@ -127,6 +132,27 @@
               </button>
             </td>
           </tr>
+          <tr id="tesis5">
+            <td>tesis6</td>
+            <td>Porfirio Jaime y Isaac Ponce</td>
+            <td>0</td>
+            <td>
+              <button class="btn btn-info btn-sm" onclick="viewThesis(5)">
+                Visualizar
+              </button>
+              <button class="btn btn-warning btn-sm" onclick="editThesis(5)">
+                Editar
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                data-toggle="modal"
+                data-target="#deleteThesisModal"
+                onclick="deleteThesis(5)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
       <button onclick="Ola3()">Agregar Tesis</button>
@@ -163,12 +189,15 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-danger"
               data-dismiss="modal"
+              onclick="pp()"
             >
+              Eliminar
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="pp()">
               Cancelar
             </button>
-            <button type="button" class="btn btn-danger">Eliminar</button>
           </div>
         </div>
       </div>
@@ -178,6 +207,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+      function pp() {
+        window.location.href("PaginaP.html");
+      }
       function viewThesis(id) {
         window.location.href = "View.html";
       }
@@ -191,6 +223,7 @@
           "ID de la Tesis: " + id;
       }
       function Ola3() {
+        document.getElementById("tesis5").style.display = "table-row";
         window.location.href = "AñardirTesis.html";
       }
     </script>
